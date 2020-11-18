@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0714DA6125658852007B4068 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0714DA6025658852007B4068 /* main.cpp */; };
 		0714DA7025658BB3007B4068 /* ChessBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0714DA6E25658BB3007B4068 /* ChessBoard.cpp */; };
+		0714DA7625658EBE007B4068 /* Knight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0714DA7425658EBE007B4068 /* Knight.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		0714DA6825658905007B4068 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0714DA6E25658BB3007B4068 /* ChessBoard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ChessBoard.cpp; sourceTree = "<group>"; };
 		0714DA6F25658BB3007B4068 /* ChessBoard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ChessBoard.hpp; sourceTree = "<group>"; };
+		0714DA7425658EBE007B4068 /* Knight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Knight.cpp; sourceTree = "<group>"; };
+		0714DA7525658EBE007B4068 /* Knight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Knight.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 			children = (
 				0714DA6025658852007B4068 /* main.cpp */,
 				0714DA6825658905007B4068 /* README.md */,
+				0714DA7425658EBE007B4068 /* Knight.cpp */,
+				0714DA7525658EBE007B4068 /* Knight.hpp */,
 				0714DA6E25658BB3007B4068 /* ChessBoard.cpp */,
 				0714DA6F25658BB3007B4068 /* ChessBoard.hpp */,
 			);
@@ -127,6 +132,7 @@
 			files = (
 				0714DA6125658852007B4068 /* main.cpp in Sources */,
 				0714DA7025658BB3007B4068 /* ChessBoard.cpp in Sources */,
+				0714DA7625658EBE007B4068 /* Knight.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

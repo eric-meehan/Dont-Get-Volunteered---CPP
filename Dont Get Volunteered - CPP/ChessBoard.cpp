@@ -49,15 +49,6 @@ void ChessBoard::BoardBuilder()
            Board[i][n] = n + (Width * i);
        }
    }
-   // Print
-   for (int i = 0; i < Length; i++)
-   {
-       for (int n = 0; n < Width; n++)
-       {
-           std::cout << Board[i][n] << " ";
-       }
-       std::cout << std::endl;
-   }
 }
 
 
@@ -86,3 +77,7 @@ void ChessBoard::CoordinatePosition(int *coordinates, int numeric)
    }
 }
 
+bool ChessBoard::IsOnBoard(int position)
+{
+    return position >= 0 and position <= Board[Length][Width];
+}

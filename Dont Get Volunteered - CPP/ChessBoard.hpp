@@ -25,6 +25,7 @@ public:
     // Accessors
     int NumericPosition(int, int);
     void CoordinatePosition(int*, int);
+    bool IsOnBoard(int);
 };
 
 #endif /* ChessBoard_hpp */
