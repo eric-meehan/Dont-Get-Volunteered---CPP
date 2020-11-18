@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0714DA6125658852007B4068 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0714DA6025658852007B4068 /* main.cpp */; };
+		0714DA7025658BB3007B4068 /* ChessBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0714DA6E25658BB3007B4068 /* ChessBoard.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,8 @@
 		0714DA5D25658852007B4068 /* Dont Get Volunteered - CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dont Get Volunteered - CPP"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0714DA6025658852007B4068 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0714DA6825658905007B4068 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0714DA6E25658BB3007B4068 /* ChessBoard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ChessBoard.cpp; sourceTree = "<group>"; };
+		0714DA6F25658BB3007B4068 /* ChessBoard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ChessBoard.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 			children = (
 				0714DA6025658852007B4068 /* main.cpp */,
 				0714DA6825658905007B4068 /* README.md */,
+				0714DA6E25658BB3007B4068 /* ChessBoard.cpp */,
+				0714DA6F25658BB3007B4068 /* ChessBoard.hpp */,
 			);
 			path = "Dont Get Volunteered - CPP";
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0714DA6125658852007B4068 /* main.cpp in Sources */,
+				0714DA7025658BB3007B4068 /* ChessBoard.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
