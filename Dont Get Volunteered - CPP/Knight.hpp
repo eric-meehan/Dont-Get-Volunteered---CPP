@@ -25,8 +25,9 @@ public:
     void ExplorePossibleMoves(ChessBoard);
     void SortCurrentPositions();
     // Accessors
-    bool DestinationReached(int);
     int GetMovesMade();
+    // Operators
+    bool operator!=(int) const;
 };
 
 #endif /* Knight_hpp */

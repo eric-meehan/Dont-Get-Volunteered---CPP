@@ -146,7 +146,7 @@ void Knight::SortCurrentPositions()
     }
 }
 
-bool Knight::DestinationReached(int Destination)
+bool Knight::operator!=(int Destination) const
 {
     // Perform a binary search on the CurrentPosition vector for the Destination
     int First = 0;
@@ -157,7 +157,7 @@ bool Knight::DestinationReached(int Destination)
         Middle = (First + Last) / 2;
         if (CurrentPosition[Middle] == Destination)
         {
-            return true;
+            return false;
         }
         else if (CurrentPosition[Middle] > Destination)
         {
@@ -167,7 +167,7 @@ bool Knight::DestinationReached(int Destination)
             First = Middle + 1;
         }
     }
-    return false;
+    return true;
 }
 
 int Knight::GetMovesMade()

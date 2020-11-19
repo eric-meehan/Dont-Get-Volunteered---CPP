@@ -72,14 +72,12 @@ int main(int argc, const char * argv[]) {
         Source = 0;
         Destination = 1;
     }
-        
-        // Take
     // Define the ChessBoard
     ChessBoard Board = ChessBoard(Length, Width);
     // Instantiate the Knight
     Knight knight = Knight(Source);
     // Generate a tree of possible moves until the destination is reached
-    while (!knight.DestinationReached(Destination))
+    while (knight != Destination)
     {
         knight.ExplorePossibleMoves(Board);
     }
