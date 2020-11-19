@@ -15,7 +15,7 @@ class ChessBoard
 private:
     int Length;
     int Width;
-    int **Board;
+    int * * Board;
     // Mutators
     void BoardBuilder();
 public:
@@ -24,8 +24,8 @@ public:
     ChessBoard(int, int);
     // Accessors
     int NumericPosition(int, int);
-    void CoordinatePosition(int*, int);
-    bool IsOnBoard(int);
+    void CoordinatePosition(int[2], int);
+    bool IsOnBoard(const int[2]);
 };
 
 #endif /* ChessBoard_hpp */

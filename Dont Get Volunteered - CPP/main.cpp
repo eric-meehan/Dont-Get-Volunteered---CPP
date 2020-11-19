@@ -4,6 +4,9 @@
  Don't Get Volunteered
  */
 
+#include "ChessBoard.hpp"
+#include "Knight.hpp"
+#include <string>
 
 int main(int argc, const char * argv[]) {
     

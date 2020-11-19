@@ -18,8 +18,8 @@ Knight::Knight()
     std::cin >> StartingPosition;
     // Set the CurrentPosition to the StartingPosition
     CurrentPosition.push_back(StartingPosition);
-    // Define MovesTaken
-    MovesTaken = 0;
+    // Define MovesMade
+    MovesMade = 0;
 }
 
 Knight::Knight(int StartingPosition)
@@ -27,8 +27,8 @@ Knight::Knight(int StartingPosition)
     // Parameterized constructor
     // Use the provided StartingPosition to define the piece's CurrentPosition
     CurrentPosition.push_back(StartingPosition);
-    // Define MovesTaken
-    MovesTaken = 0;
+    // Define MovesMade
+    MovesMade = 0;
 }
 
 
@@ -36,52 +36,96 @@ Knight::Knight(int StartingPosition)
 void Knight::ExplorePossibleMoves(ChessBoard Board)
 {
     // Calculate all of the possible moves from a given position
+    // CurrentPosition represents all of the possible current positions, rather than a singular position.
     // Copy CurrentPosition into a temporary variable to allow manipulations of CurrentPosition
     std::vector<int> SourcePosition = CurrentPosition;
     // Empty CurrentPosition
     CurrentPosition.clear();
     // For each position listed in SourcePosition, generate the possible positions for the subsequent move
+    int SourceCoordinates[2];
+    int DestinationCoordinates[2];
     for (auto each : SourcePosition)
     {
-        // Convert the numeric position to coordinates
-        int *coordinates = nullptr;
-        Board.CoordinatePosition(coordinates, each);
-        // Test the possible moves and add them to the CurrentPosition vector
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] + 1, coordinates[1] + 2), Board))
+        // Update SourceCoordinates
+        Board.CoordinatePosition(SourceCoordinates, each);
+        // Test all the possible moves and add them to the CurrentPosition vector
+        // Update DestinationCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] + 1;
+        DestinationCoordinates[1] = SourceCoordinates[1] + 2;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] + 1, coordinates[1] + 2));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] + 1, coordinates[1] - 2), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] + 1;
+        DestinationCoordinates[1] = SourceCoordinates[1] - 2;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] + 1, coordinates[1] - 2));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] - 1, coordinates[1] - 2), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] - 1;
+        DestinationCoordinates[1] = SourceCoordinates[1] - 2;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] - 1, coordinates[1] - 2));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] - 1, coordinates[1] + 2), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] - 1;
+        DestinationCoordinates[1] = SourceCoordinates[1] + 2;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] - 1, coordinates[1] + 2));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] + 2, coordinates[1] + 1), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] + 2;
+        DestinationCoordinates[1] = SourceCoordinates[1] + 1;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] + 2, coordinates[1] + 1));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] + 2, coordinates[1] - 1), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] + 2;
+        DestinationCoordinates[1] = SourceCoordinates[1] - 1;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] + 2, coordinates[1] - 1));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] - 2, coordinates[1] + 1), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] - 2;
+        DestinationCoordinates[1] = SourceCoordinates[1] - 1;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] - 2, coordinates[1] + 1));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
-        if (IsValidMove(Board.NumericPosition(coordinates[0], coordinates[1]), Board.NumericPosition(coordinates[0] - 2, coordinates[1] - 1), Board))
+        // Update SourceCoordinates
+        DestinationCoordinates[0] = SourceCoordinates[0] - 2;
+        DestinationCoordinates[1] = SourceCoordinates[1] + 1;
+        // Test DestinationCoordinates
+        if (Board.IsOnBoard(DestinationCoordinates))
         {
-            CurrentPosition.push_back(Board.NumericPosition(coordinates[0] - 2, coordinates[1] - 1));
+            // Add the numeric position of DestinationCoordinates to the CurrentPosition vector
+            CurrentPosition.push_back(Board.NumericPosition(DestinationCoordinates[0], DestinationCoordinates[1]));
         }
     }
     // Increment moves taken
-    MovesTaken++;
+    MovesMade++;
+    // Sort the CurrentPosition list to improve searchability
+    SortCurrentPositions();
 }
 
 void Knight::SortCurrentPositions()
@@ -102,43 +146,11 @@ void Knight::SortCurrentPositions()
     }
 }
 
-
-// ACCESSORS //
-
-bool Knight::IsValidMove(int source, int destination, ChessBoard Board)
-{
-    // Confirm that the destination position will be on the board
-    if (!Board.IsOnBoard(destination)) {
-        return false;
-    }
-    // Convert the numeric positions of source and destination to coordinates
-    int *SourceCoordinates = nullptr;
-    Board.CoordinatePosition(SourceCoordinates, source);
-    int *DestinationCoordinates = nullptr;
-    Board.CoordinatePosition(DestinationCoordinates, destination);
-    // Confirm that moving from the source to the destination does not require warping over the edges
-    bool HasWarped = (
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == 1 && SourceCoordinates[1] - DestinationCoordinates[1] == 2) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == 2 && SourceCoordinates[1] - DestinationCoordinates[1] == 1) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == -1 && SourceCoordinates[1] - DestinationCoordinates[1] == -2) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == -2 && SourceCoordinates[1] - DestinationCoordinates[1] == -1) ||
-                   (DestinationCoordinates[0] - SourceCoordinates[0] == 1 && DestinationCoordinates[1] - SourceCoordinates[1] == 2) ||
-                   (DestinationCoordinates[0] - SourceCoordinates[0] == 2 && DestinationCoordinates[1] - SourceCoordinates[1] == 1) ||
-                   (DestinationCoordinates[0] - SourceCoordinates[0] == -1 && DestinationCoordinates[1] - SourceCoordinates[1] == -2) ||
-                   (DestinationCoordinates[0] - SourceCoordinates[0] == -2 && DestinationCoordinates[1] - SourceCoordinates[1] == -1) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == 1 && SourceCoordinates[1] - DestinationCoordinates[1] == -2) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == -1 && SourceCoordinates[1] - DestinationCoordinates[1] == 2) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == 2 && SourceCoordinates[1] - DestinationCoordinates[1] == -1) ||
-                   (SourceCoordinates[0] - DestinationCoordinates[0] == -2 && SourceCoordinates[1] - DestinationCoordinates[1] == 1)
-                   );
-    return !HasWarped;
-}
-
 bool Knight::DestinationReached(int Destination)
 {
     // Perform a binary search on the CurrentPosition vector for the Destination
     int First = 0;
-    int Last = CurrentPosition.size() - 1;
+    int Last = int(CurrentPosition.size()) - 1;
     int Middle;
     while (First <= Last)
     {
@@ -156,4 +168,10 @@ bool Knight::DestinationReached(int Destination)
         }
     }
     return false;
+}
+
+int Knight::GetMovesMade()
+{
+    // Simply return the number of moves taken
+    return MovesMade;
 }

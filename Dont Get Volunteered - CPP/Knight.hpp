@@ -16,7 +16,7 @@ class Knight
 {
 private:
     std::vector<int> CurrentPosition;
-    int MovesTaken;
+    int MovesMade;
 public:
     // Constructors
     Knight();
@@ -25,8 +25,8 @@ public:
     void ExplorePossibleMoves(ChessBoard);
     void SortCurrentPositions();
     // Accessors
-    bool IsValidMove(int, int, ChessBoard);
     bool DestinationReached(int);
+    int GetMovesMade();
 };
 
 #endif /* Knight_hpp */

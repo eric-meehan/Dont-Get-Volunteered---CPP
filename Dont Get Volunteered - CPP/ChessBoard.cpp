@@ -36,7 +36,7 @@ ChessBoard::ChessBoard(int length, int width)
 void ChessBoard::BoardBuilder()
 {
    // Create a matrix to represent the chess board
-   Board = new int*[Length];
+   Board = new int * [Length];
    for (int i = 0; i < Length; i++)
    {
        Board[i] = new int[Width];
@@ -49,6 +49,7 @@ void ChessBoard::BoardBuilder()
            Board[i][n] = n + (Width * i);
        }
    }
+    // Note that since the board exists for the duration of runtime, memory leaks are not a concern.
 }
 
 
@@ -56,28 +57,34 @@ void ChessBoard::BoardBuilder()
 
 int ChessBoard::NumericPosition(int x, int y)
 {
-   // Converts a coordinate position to a numeric position
-   return Board[y][x];
+    return Board[y][x];
 }
 
-void ChessBoard::CoordinatePosition(int *coordinates, int numeric)
+void ChessBoard::CoordinatePosition(int coordinates[2], int numeric)
 {
-   // Converts a numeric position to a coordinate position
-   for (int i = 0; i < Length; i++)
-   {
+    // Converts a numeric position to a coordinate position
+    bool Found = false;
+    for (int i = 0; i < Length; i++)
+    {
        for (int n = 0; n < Width; n++)
        {
            if (Board[i][n] == numeric)
            {
-               coordinates = new int[2];
                coordinates[0] = n;
                coordinates[1] = i;
+               Found = true;
+               break;
            }
        }
-   }
+        if (Found)
+        {
+            break;
+        }
+    }
 }
 
-bool ChessBoard::IsOnBoard(int position)
+bool ChessBoard::IsOnBoard(const int position[2])
 {
-    return position >= 0 and position <= Board[Length][Width];
+    // Confirms that a piece does not move outside the perimeter of the board
+    return position[0] >= 0 and position[0] < Width and position[1] >= 0 and position[1] < Length;
 }
